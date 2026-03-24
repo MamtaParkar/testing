@@ -1,0 +1,87 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="com.ibs.testproject.controller.MasterPage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <content>
+    <Table items="{StudentDetails>/Students}" backgroundDesign="Solid" >
+    <columns>
+    <Column>
+    <Title text="Name"/>
+    </Column>
+    <Column>
+    <Title text="Age" textAlign="Center"/>
+    </Column>
+    <Column>
+    <Title text="City" textAlign="Center"/>
+    </Column>
+    <Column>
+    <Title text="Division" textAlign="Center"/>
+    </Column>
+    <Column>
+    <Title text="Roll_No." textAlign="Center"/>
+    </Column>
+        <Column>
+    <Title text="Result" textAlign="Center"/>
+    </Column>
+    </columns>
+    <items>
+    <ColumnListItem type="Navigation" press="onStudentDetails">
+    <cells>
+    <Text text="{StudentDetails>Name}"/>
+    <ObjectStatus text="{StudentDetails>Age} " 
+    state="{=${StudentDetails>Age} > 18 ? 'Success': 'Error'}"/>    
+    <!-- <Text text="{Age}"/> -->
+   
+    <Text text="{StudentDetails>City}"/>
+   
+    <Text text="{StudentDetails>Division}"/>
+    
+    <Text text="{StudentDetails>Roll_No}"/>
+    
+    <Text text="{=${StudentDetails>Passed} === true ? 'Passed':'Failed'}"  />
+    </cells>
+    </ColumnListItem>    
+    </items>
+    </Table>
+    </content>
+    <content>
+    
+    </content>
+
+    <!-- <content>
+    	<f:SimpleForm id="SimpleFormDisplay"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="Employee Details"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="Name" />
+				<Text id="nameText" text="{StudentDetails>Name}" />
+				<Label text="Age" />
+				<Text text="{StudentDetails>Age}" />
+				<Label text="City" />
+				<Text text="{StudentDetails>City}" />
+				<Label text="Division" />
+				<Text id="DivisionText" text="{StudentDetails>Division}" />
+                <Label text="Roll No" />
+				<Text id="RollText" text="{StudentDetails>Roll_No}" />
+                <Label text="Result" />
+				<Text id="ResultText" text="{=${StudentDetails>Passed}===true ? 'Passed':'Failed'}"  />
+			</f:content>
+		</f:SimpleForm>
+    </content> -->
+    </Page>
+</mvc:View>
