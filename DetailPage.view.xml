@@ -1,0 +1,76 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="your.namespace.controller.ItemDetails">
+ 
+    <VBox class="sapUiSmallMargin">
+ 
+        <!-- Items Header -->
+<HBox justifyContent="SpaceBetween" alignItems="Center">
+<Title text="Items (1)" level="H4"/>
+<Button icon="sap-icon://action-settings" type="Transparent"/>
+</HBox>
+ 
+        <!-- Items Table -->
+<Table
+            items="{/Items}"
+            inset="false"
+            class="sapUiResponsiveContentPadding">
+ 
+            <columns>
+<Column><Text text="Item Number"/></Column>
+<Column><Text text="HSN/SAC Code"/></Column>
+ 
+                <Column hAlign="End">
+<Text text="Taxable Amount"/>
+</Column>
+ 
+                <Column hAlign="End">
+<Text text="IGST Amount"/>
+</Column>
+ 
+                <Column hAlign="End">
+<Text text="CGST Amount"/>
+</Column>
+ 
+                <Column hAlign="End">
+<Text text="SGST Amount"/>
+</Column>
+ 
+                <Column hAlign="End">
+<Text text="CESS Amount"/>
+</Column>
+</columns>
+ 
+            <items>
+<ColumnListItem>
+<cells>
+<Text text="{ItemNumber}"/>
+<Text text="{HSNCode}"/>
+ 
+                        <ObjectNumber
+                            number="{TaxableAmount}"
+                            unit="₹"/>
+ 
+                        <ObjectNumber
+                            number="{IGSTAmount}"
+                            unit="₹"/>
+ 
+                        <ObjectNumber
+                            number="{CGSTAmount}"
+                            unit="₹"/>
+ 
+                        <ObjectNumber
+                            number="{SGSTAmount}"
+                            unit="₹"/>
+ 
+                        <ObjectNumber
+                            number="{CESSAmount}"
+                            unit="₹"/>
+</cells>
+</ColumnListItem>
+</items>
+</Table>
+ 
+    </VBox>
+</mvc:View>
